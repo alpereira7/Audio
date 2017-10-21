@@ -2,9 +2,10 @@
 #define TEST_TESTFUNCTIONS_H
 
 #include <math.h>
+#include "stdio.h"
 
-float compareOutputs(float* out, float* outRef, unsigned int length);
-
+int openOutputFiles(float* out, float* outRef, const char* outFileName, const char* outRefFileName);
+float 	compareOutputs(float* out, float* outRef, unsigned int length);
 
 
 

@@ -1,46 +1,27 @@
-//#include <stdlib.h>
 #include <stdio.h>
 #include "testFunctions.h"
 
 int main(void)
 {
-	FILE* outRefFile 	= fopen("output/outRef.txt", "r");
+	float out[128] 				= {0.};
+	float outRef[128] 			= {0.};
 
-	if (outRefFile == NULL)
-		printf("Error ! ");
+	const char* outFileName 	= "output/out.txt";
+	const char* outRefFileName 	= "output/outRef.txt";
 
-	FILE* outFile 		= fopen("output/out.txt", "r");
-
-	if (outFile == NULL)
-		printf("Error ! ");
-
-	float outRef[128] = {0.};
-	float out[128] = {0.};
-	int i;
-	float value;
-
-	i = 0;
-	while(fscanf(outRefFile, "%f,", &value) > 0)
+	if(openOutputFiles(out, outRef, outFileName, outRefFileName))
 	{
-		outRef[i] = value;
-		i++;
-	}
-
-	i = 0;
-	while(fscanf(outFile, "%f,", &value) > 0)
-	{
-		out[i] = value;
-		i++;
+		printf("error 1\n");
+		return 1;
 	}
 
 	if(compareOutputs(out, outRef, 128))
 	{
 		printf("test failed\n");
+		return 1;
 	}
-	else
-	{
-		printf("OK\n");
-	}
+
+	printf("OK\n");
 
 	return 0;
 }
