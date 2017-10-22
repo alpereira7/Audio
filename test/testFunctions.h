@@ -3,11 +3,17 @@
 
 #include <math.h>
 #include "stdio.h"
+#include "globalDefs.h"
 
-int openOutputFiles(float* out, float* outRef, const char* outFileName, const char* outRefFileName);
-float 	compareOutputs(float* out, float* outRef, unsigned int length);
+int genSine(float f, float fs, int length, const char* inFilNam);
 
+int openOutFiles(	float* out1,
+					float* out2,
+					const char* outFilNam1,
+					const char* outFilNam2);
 
-
+float compareOutputs(	float* out,
+						float* outRef,
+						const unsigned int length);
 
 #endif // TEST_TESTFUNCTIONS_H

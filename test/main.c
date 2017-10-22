@@ -3,13 +3,21 @@
 
 int main(void)
 {
+	const char* inFilNam 		= "input/in.txt";
+
+	if(genSine(440, 48000, 128, inFilNam))
+	{
+		printf("error 0\n");
+		return 1;
+	}
+
 	float out[128] 				= {0.};
 	float outRef[128] 			= {0.};
 
-	const char* outFileName 	= "output/out.txt";
-	const char* outRefFileName 	= "output/outRef.txt";
+	const char* outFilNam 		= "output/out.txt";
+	const char* outRefFilNam 	= "output/outRef.txt";
 
-	if(openOutputFiles(out, outRef, outFileName, outRefFileName))
+	if(openOutFiles(out, outRef, outFilNam, outRefFilNam))
 	{
 		printf("error 1\n");
 		return 1;
