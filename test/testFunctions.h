@@ -3,9 +3,11 @@
 
 #include <math.h>
 #include "stdio.h"
-#include "globalDefs.h"
+#include "../globalDefs.h"
 
-int genSine(float f, float fs, int length, const char* inFilNam);
+int genSine(float f, float fs, int length, const char* inFilNam, float* in);
+
+int writeOutput(float* out, int length, const char* inFilNam);
 
 int openOutFiles(	float* out1,
 					float* out2,

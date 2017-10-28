@@ -1,16 +1,29 @@
 #include "testFunctions.h"
 
-int genSine(float f, float fs, int length, const char* inFilNam)
+int genSine(float f, float fs, int length, const char* inFilNam, float *in)
 {
 	FILE* inFile = fopen(inFilNam, "w");
 	if (inFile == NULL) 						return FILE_ERROR;
 
-	float in[length];
 	int i;
 	for(i = 0; i < length; i++)
 	{
 		in[i] = sin(2.*PI*f*(float)i/fs);
 		fprintf(inFile, "%f,\n", in[i]);
+	}
+
+	return NO_ERROR;
+}
+
+int writeOutput(float* out, int length, const char* outFilNam)
+{
+	FILE* outFile 	= fopen(outFilNam, "w");
+	if (outFile == NULL) 						return FILE_ERROR;
+
+	int i;
+	for(i = 0; i < length; i++)
+	{
+		fprintf(outFile, "%f,\n", out[i]);
 	}
 
 	return NO_ERROR;
