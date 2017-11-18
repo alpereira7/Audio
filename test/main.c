@@ -5,7 +5,7 @@
 
 int main(void)
 {
-	const char* inFilNam 		= "input/in.txt";
+	const char* inFilNam 		= INPUT_FILE_NAME;
 
 	float in[FRAME_SIZE];
 
@@ -20,17 +20,17 @@ int main(void)
 	float outRef[FRAME_SIZE];
 
 	Volume VolumeInstance;
-	float gain = 0.;
+	float gain = -3.;
 	float gain_ = -1000.;
 
 	initVolume(&VolumeInstance, in, out, FRAME_SIZE);
 	setVolume(&VolumeInstance, VOL_PARAM_GAIN, (unsigned int*)&gain);
 	getVolume(&VolumeInstance, VOL_PARAM_GAIN, (unsigned int*)&gain_);
-	printf("%f\n", gain_);
+	printf("Gain is %f dB.\n", gain_);
 
 	processVolume(&VolumeInstance);
 
-	const char* outFilNam 		= "output/out.txt";
+	const char* outFilNam 		= OUTPUT_FILE_NAME;
 
 	if(writeOutput(out, FRAME_SIZE, outFilNam))
 	{
@@ -38,7 +38,7 @@ int main(void)
 		return 1;
 	}
 
-	const char* outRefFilNam 	= "output/outRef.txt";
+	const char* outRefFilNam 	= OUTPUT_REF_FILE_NAME;
 
 	if(openOutFiles(out, outRef, outFilNam, outRefFilNam))
 	{
