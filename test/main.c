@@ -6,7 +6,6 @@
 int main(void)
 {
 	const char* inFilNam 		= INPUT_FILE_NAME;
-
 	float in[FRAME_SIZE];
 
 	// Generate sine
@@ -17,7 +16,6 @@ int main(void)
 	}
 
 	float out[FRAME_SIZE];
-	float outRef[FRAME_SIZE];
 
 	Volume VolumeInstance;
 	float gain = -3.;
@@ -31,15 +29,15 @@ int main(void)
 	processVolume(&VolumeInstance);
 
 	const char* outFilNam 		= OUTPUT_FILE_NAME;
-
 	if(writeOutput(out, FRAME_SIZE, outFilNam))
 	{
 		printf("error 1\n");
 		return 1;
 	}
 
+	float outRef[FRAME_SIZE];
 	const char* outRefFilNam 	= OUTPUT_REF_FILE_NAME;
-
+	
 	if(openOutFiles(out, outRef, outFilNam, outRefFilNam))
 	{
 		printf("error 1\n");
@@ -53,6 +51,5 @@ int main(void)
 	}
 
 	printf("OK\n");
-
 	return 0;
 }

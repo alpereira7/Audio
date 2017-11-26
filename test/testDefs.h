@@ -13,9 +13,9 @@
 
 #ifdef TEST_1
 
-#define INPUT_FILE_NAME 		"input/in.txt"
-#define OUTPUT_FILE_NAME 		"output/out.txt"
-#define OUTPUT_REF_FILE_NAME 	"output/outRef.txt"
+#define INPUT_FILE_NAME 		"../../input/in.txt"
+#define OUTPUT_FILE_NAME 		"../../output/out.txt"
+#define OUTPUT_REF_FILE_NAME 	"../../output/outRef.txt"
 
 #endif
 

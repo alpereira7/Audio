@@ -3,7 +3,7 @@
 
 #include <math.h>
 #include "stdio.h"
-#include "../globalDefs.h"
+#include "../global/globalDefs.h"
 
 int genSine(float f, float fs, int length, const char* inFilNam, float* in);
 

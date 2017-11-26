@@ -11,6 +11,8 @@ int genSine(float f, float fs, int length, const char* inFilNam, float *in)
 		in[i] = sin(2.*PI*f*(float)i/fs);
 		fprintf(inFile, "%f,\n", in[i]);
 	}
+	
+	fclose(inFile);
 
 	return NO_ERROR;
 }
@@ -25,6 +27,8 @@ int writeOutput(float* out, int length, const char* outFilNam)
 	{
 		fprintf(outFile, "%f,\n", out[i]);
 	}
+	
+	fclose(outFile);
 
 	return NO_ERROR;
 }
@@ -42,6 +46,7 @@ int openOutFiles(	float* out1,
 
 	int i;
 	float value;
+	
 	i = 0;
 	while(fscanf(outFile1, "%f,", &value) > 0)
 	{
@@ -53,6 +58,9 @@ int openOutFiles(	float* out1,
 	{
 		out2[i++] = value;
 	}
+	
+	fclose(outFile1);
+	fclose(outFile2);
 
 	return NO_ERROR;
 }

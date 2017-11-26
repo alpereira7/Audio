@@ -7,7 +7,7 @@
 #include <math.h>
 #include <stdio.h>
 #include "volume.h"
-#include "../globalDefs.h"
+#include "../global/globalDefs.h"
 
 int initVolume(	Volume *pVolume,
 				float *pIn,
