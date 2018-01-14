@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "testFunctions.h"
+#include "../global/testFunctions.h"
 #include "testDefs.h"
 #include "../volume/volume.h"
 
